@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}   
+    {% if search_exist %}
+        <h1>Search Result</h1>  
+        <ul> 
+            {% for entry in list_entry %}
+                {% if search_param in entry|lower %}
+                <li><a href="{{ entry }}">{{ entry }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul> 
+    {% else %} 
+        <div class="alert alert-danger mt-5 col-9" role="alert">"{{search_param}}" Not Found.</div>
+    {% endif %}       
+{% endblock %} 
+
+

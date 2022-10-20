@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %} 
+
+    {% if not error %}
+        <h1>Create New Page</h1>
+        <form action="{% url 'create_page' %}" method="post">
+            {% csrf_token %} 
+            <label for="title">Title:</label>
+            <input class="form-control col-3 mb-4" type="text" name="title" id="title">      
+            <textarea class="form-control col-7 mb-4" rows="15" name="content" id="content" placeholder="Enter text here..."></textarea>
+            <input class="btn btn-primary" type="submit">
+        </form>
+    {% else %}
+        <div class="alert alert-danger mt-5 col-9" role="alert">"{{text}}" already exists.</div>
+    {% endif %}
+
+{% endblock %} 
