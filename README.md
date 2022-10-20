@@ -13,7 +13,7 @@ In encyclopedia app directory there are files providing the whole process of int
 
 requirements.txt - packages that need to be installed to run the web application
 
-## Technologies:
+### Technologies:
 
 1. Python
 2. Django
